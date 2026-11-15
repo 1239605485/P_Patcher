@@ -43,6 +43,8 @@ jobs:
           SIGNING_PEM_BASE64: ${{ secrets.SIGNING_PEM_BASE64 }}
           SIGNING_CERT_SHA256: ${{ vars.SIGNING_CERT_SHA256 }}
         run: python tools/ci_release.py
+      - name: Test installer diagnostics and provenance
+        run: python tests/diagnostic_engine_tests.py
       - name: Upload APK and verification
         uses: actions/upload-artifact@v4
         with:

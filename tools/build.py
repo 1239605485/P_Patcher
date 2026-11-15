@@ -102,7 +102,7 @@ def main():
         z.write(dex/'classes.dex', 'classes.dex')
         z.write(ROOT/'assets/trust.der', 'assets/trust.der')
     kind = 'debug' if a.debug else 'release'
-    out = a.output.resolve() if a.output else ROOT/f'output/P_Patcher_1.4.0-{kind}.apk'
+    out = a.output.resolve() if a.output else ROOT/f'output/P_Patcher_1.5.0-{kind}.apk'
     out.parent.mkdir(parents=True, exist_ok=True)
     pending = out.with_suffix('.pending.apk')
     try:
@@ -122,7 +122,7 @@ def main():
             if ARSCParser(z.read('resources.arsc')).get_packages_names() != ['cn.minidayz.patcher']:
                 raise ValueError('APK resource validation failed')
         report.update(sha256=hashlib.sha256(pending.read_bytes()).hexdigest(), package='cn.minidayz.patcher',
-            version='1.4.0', build_type=kind, apk_signer_sha256=fp, module_trust_sha256=TRUSTED_CERT,
+            version='1.5.0', build_type=kind, apk_signer_sha256=fp, module_trust_sha256=TRUSTED_CERT,
             target_sdk=35, device_test='NOT_RUN')
         pending.replace(out)
         out.with_suffix('.verification.json').write_text(json.dumps(report, indent=2), encoding='utf-8')

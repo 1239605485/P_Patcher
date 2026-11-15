@@ -2,6 +2,7 @@
 import argparse
 import collections
 import csv
+import hashlib
 import json
 import struct
 from pathlib import Path
@@ -34,6 +35,11 @@ def main():
         results.append(result)
     report = {'format': 'mdz-native-migration-plan/1', 'status': 'PLAN_ONLY_NOT_APPLIED',
               'release_ready': False, 'hook_entries': len(hooks),
+              'source_binary_sha256': hashlib.sha256(old.raw).hexdigest(),
+              'target_binary_sha256': hashlib.sha256(new.raw).hexdigest(),
+              'source_methods_sha256': hashlib.sha256(a.old_methods.read_bytes()).hexdigest(),
+              'target_methods_sha256': hashlib.sha256(a.new_methods.read_bytes()).hexdigest(),
+              'source_hooks_sha256': hashlib.sha256(a.hooks.read_bytes()).hexdigest(),
               'counts': dict(collections.Counter(x['status'] for x in results)),
               'anchors': results,
               'limitations': ['Legacy keys use parameter names, not full signatures.',

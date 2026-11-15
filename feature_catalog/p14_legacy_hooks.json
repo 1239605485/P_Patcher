@@ -1,0 +1,1626 @@
+[
+  {
+    "site": "0x28f1f94",
+    "target": "0x44db220",
+    "kind": "b",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.World.Bunker",
+      "method": "HasCard",
+      "params": "p",
+      "rva": "0x28f1f94",
+      "file_offset": "0x28edf94"
+    },
+    "delta": 0
+  },
+  {
+    "site": "0x28f2250",
+    "target": "0x44db250",
+    "kind": "b",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.World.Bunker",
+      "method": "ConsumeCard",
+      "params": "p",
+      "rva": "0x28f2250",
+      "file_offset": "0x28ee250"
+    },
+    "delta": 0
+  },
+  {
+    "site": "0x28f3b30",
+    "target": "0x44db2a0",
+    "kind": "b",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.World.BunkerEntrance",
+      "method": "Interact",
+      "params": "p",
+      "rva": "0x28f39a4",
+      "file_offset": "0x28ef9a4"
+    },
+    "delta": 396
+  },
+  {
+    "site": "0x2923f54",
+    "target": "0x44acaa0",
+    "kind": "bl",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.UI.LoadoutScreen",
+      "method": "BuildCard",
+      "params": "cap",
+      "rva": "0x2922828",
+      "file_offset": "0x291e828"
+    },
+    "delta": 5932
+  },
+  {
+    "site": "0x2923f80",
+    "target": "0x44acba0",
+    "kind": "bl",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.UI.LoadoutScreen",
+      "method": "BuildCard",
+      "params": "cap",
+      "rva": "0x2922828",
+      "file_offset": "0x291e828"
+    },
+    "delta": 5976
+  },
+  {
+    "site": "0x2924ba0",
+    "target": "0x44acea0",
+    "kind": "b",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.UI.LoadoutScreen",
+      "method": "Slot2",
+      "params": "slot,pos,size,label",
+      "rva": "0x2924700",
+      "file_offset": "0x2920700"
+    },
+    "delta": 1184
+  },
+  {
+    "site": "0x2924e44",
+    "target": "0x44ad1a0",
+    "kind": "b",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.UI.LoadoutScreen",
+      "method": "Slot2",
+      "params": "slot,pos,size,label",
+      "rva": "0x2924700",
+      "file_offset": "0x2920700"
+    },
+    "delta": 1860
+  },
+  {
+    "site": "0x2941038",
+    "target": "0x44b95f0",
+    "kind": "b",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.UI.BountyBoard",
+      "method": "Refresh",
+      "params": "",
+      "rva": "0x2940ecc",
+      "file_offset": "0x293cecc"
+    },
+    "delta": 364
+  },
+  {
+    "site": "0x294146c",
+    "target": "0x44b98f0",
+    "kind": "b",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.UI.BountyBoard",
+      "method": "Toggle",
+      "params": "n",
+      "rva": "0x2941228",
+      "file_offset": "0x293d228"
+    },
+    "delta": 580
+  },
+  {
+    "site": "0x297ba20",
+    "target": "0x44ad2a0",
+    "kind": "b",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.UI.InventoryTheme",
+      "method": "Card",
+      "params": "card",
+      "rva": "0x297b67c",
+      "file_offset": "0x297767c"
+    },
+    "delta": 932
+  },
+  {
+    "site": "0x297d074",
+    "target": "0x44e5f90",
+    "kind": "bl",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.UI.ItemCard",
+      "method": "Show",
+      "params": "st",
+      "rva": "0x297cac8",
+      "file_offset": "0x2978ac8"
+    },
+    "delta": 1452
+  },
+  {
+    "site": "0x297d188",
+    "target": "0x44e6050",
+    "kind": "bl",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.UI.ItemCard",
+      "method": "Show",
+      "params": "st",
+      "rva": "0x297cac8",
+      "file_offset": "0x2978ac8"
+    },
+    "delta": 1728
+  },
+  {
+    "site": "0x297d194",
+    "target": "0x44e6400",
+    "kind": "bl",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.UI.ItemCard",
+      "method": "Show",
+      "params": "st",
+      "rva": "0x297cac8",
+      "file_offset": "0x2978ac8"
+    },
+    "delta": 1740
+  },
+  {
+    "site": "0x297d73c",
+    "target": "0x44e6ad0",
+    "kind": "b",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.UI.ItemCard",
+      "method": "Show",
+      "params": "st",
+      "rva": "0x297cac8",
+      "file_offset": "0x2978ac8"
+    },
+    "delta": 3188
+  },
+  {
+    "site": "0x297d92c",
+    "target": "0x44e6db0",
+    "kind": "bl",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.UI.ItemCard",
+      "method": "Show",
+      "params": "st",
+      "rva": "0x297cac8",
+      "file_offset": "0x2978ac8"
+    },
+    "delta": 3684
+  },
+  {
+    "site": "0x297d948",
+    "target": "0x44e6db0",
+    "kind": "bl",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.UI.ItemCard",
+      "method": "Show",
+      "params": "st",
+      "rva": "0x297cac8",
+      "file_offset": "0x2978ac8"
+    },
+    "delta": 3712
+  },
+  {
+    "site": "0x297da1c",
+    "target": "0x44e6420",
+    "kind": "b",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.UI.ItemCard",
+      "method": "Show",
+      "params": "st",
+      "rva": "0x297cac8",
+      "file_offset": "0x2978ac8"
+    },
+    "delta": 3924
+  },
+  {
+    "site": "0x29decac",
+    "target": "0x44d8090",
+    "kind": "b",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.World.WorldItem",
+      "method": "Spawn",
+      "params": "s,pos,parent",
+      "rva": "0x29decac",
+      "file_offset": "0x29dacac"
+    },
+    "delta": 0
+  },
+  {
+    "site": "0x29ebd08",
+    "target": "0x44dae80",
+    "kind": "b",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.World.LootContainer",
+      "method": "LockTool",
+      "params": "p",
+      "rva": "0x29ebd08",
+      "file_offset": "0x29e7d08"
+    },
+    "delta": 0
+  },
+  {
+    "site": "0x29ec4b4",
+    "target": "0x44d8230",
+    "kind": "b",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.World.LootContainer",
+      "method": "Fill",
+      "params": "data,rng,overrideCollection",
+      "rva": "0x29ec4b4",
+      "file_offset": "0x29e84b4"
+    },
+    "delta": 0
+  },
+  {
+    "site": "0x29ef7e4",
+    "target": "0x44daed0",
+    "kind": "b",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.World.LootContainer",
+      "method": "Interact",
+      "params": "p",
+      "rva": "0x29ef708",
+      "file_offset": "0x29eb708"
+    },
+    "delta": 220
+  },
+  {
+    "site": "0x29ef80c",
+    "target": "0x44daee0",
+    "kind": "b",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.World.LootContainer",
+      "method": "Interact",
+      "params": "p",
+      "rva": "0x29ef708",
+      "file_offset": "0x29eb708"
+    },
+    "delta": 260
+  },
+  {
+    "site": "0x29efbf8",
+    "target": "0x44db0c0",
+    "kind": "b",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.World.LootContainer",
+      "method": "Interact",
+      "params": "p",
+      "rva": "0x29ef708",
+      "file_offset": "0x29eb708"
+    },
+    "delta": 1264
+  },
+  {
+    "site": "0x29f2c20",
+    "target": "0x44b2330",
+    "kind": "b",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.World.SourceNode",
+      "method": "get_Prompt",
+      "params": "",
+      "rva": "0x29f2b60",
+      "file_offset": "0x29eeb60"
+    },
+    "delta": 192
+  },
+  {
+    "site": "0x29f2e84",
+    "target": "0x44ad520",
+    "kind": "b",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.World.SourceNode",
+      "method": "CanInteract",
+      "params": "p,why",
+      "rva": "0x29f2db0",
+      "file_offset": "0x29eedb0"
+    },
+    "delta": 212
+  },
+  {
+    "site": "0x29f2fcc",
+    "target": "0x44ad620",
+    "kind": "b",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.World.SourceNode",
+      "method": "InteractionTimeFor",
+      "params": "p",
+      "rva": "0x29f2f78",
+      "file_offset": "0x29eef78"
+    },
+    "delta": 84
+  },
+  {
+    "site": "0x29f3418",
+    "target": "0x44ad720",
+    "kind": "b",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.World.SourceNode",
+      "method": "Interact",
+      "params": "p",
+      "rva": "0x29f307c",
+      "file_offset": "0x29ef07c"
+    },
+    "delta": 924
+  },
+  {
+    "site": "0x2a01a88",
+    "target": "0x44acca0",
+    "kind": "bl",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.UI.RaidHud",
+      "method": "BuildCard",
+      "params": "",
+      "rva": "0x2a00724",
+      "file_offset": "0x29fc724"
+    },
+    "delta": 4964
+  },
+  {
+    "site": "0x2a022a8",
+    "target": "0x44acda0",
+    "kind": "bl",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.UI.RaidHud",
+      "method": "WeaponSlot",
+      "params": "slot,pos",
+      "rva": "0x2a0208c",
+      "file_offset": "0x29fe08c"
+    },
+    "delta": 540
+  },
+  {
+    "site": "0x2a039dc",
+    "target": "0x44ad0a0",
+    "kind": "b",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.UI.RaidHud",
+      "method": "Silhouette",
+      "params": "bg,slot,size",
+      "rva": "0x2a038e4",
+      "file_offset": "0x29ff8e4"
+    },
+    "delta": 248
+  },
+  {
+    "site": "0x2a0fee8",
+    "target": "0x44e5f60",
+    "kind": "bl",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.UI.Screens",
+      "method": "PartDetail",
+      "params": "d",
+      "rva": "0x2a0f8d0",
+      "file_offset": "0x2a0b8d0"
+    },
+    "delta": 1560
+  },
+  {
+    "site": "0x2a0ff04",
+    "target": "0x44e5f60",
+    "kind": "bl",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.UI.Screens",
+      "method": "PartDetail",
+      "params": "d",
+      "rva": "0x2a0f8d0",
+      "file_offset": "0x2a0b8d0"
+    },
+    "delta": 1588
+  },
+  {
+    "site": "0x2a0ffb8",
+    "target": "0x44e6490",
+    "kind": "bl",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.UI.Screens",
+      "method": "PartDetail",
+      "params": "d",
+      "rva": "0x2a0f8d0",
+      "file_offset": "0x2a0b8d0"
+    },
+    "delta": 1768
+  },
+  {
+    "site": "0x2a11074",
+    "target": "0x44e5f60",
+    "kind": "bl",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.UI.Screens",
+      "method": "WeaponDetail",
+      "params": "st",
+      "rva": "0x2a108d4",
+      "file_offset": "0x2a0c8d4"
+    },
+    "delta": 1952
+  },
+  {
+    "site": "0x2a1109c",
+    "target": "0x44e5f60",
+    "kind": "bl",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.UI.Screens",
+      "method": "WeaponDetail",
+      "params": "st",
+      "rva": "0x2a108d4",
+      "file_offset": "0x2a0c8d4"
+    },
+    "delta": 1992
+  },
+  {
+    "site": "0x2a11114",
+    "target": "0x44e6490",
+    "kind": "bl",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.UI.Screens",
+      "method": "WeaponDetail",
+      "params": "st",
+      "rva": "0x2a108d4",
+      "file_offset": "0x2a0c8d4"
+    },
+    "delta": 2112
+  },
+  {
+    "site": "0x2a11b40",
+    "target": "0x44e5f60",
+    "kind": "bl",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.UI.Screens",
+      "method": "WeaponDetail",
+      "params": "st",
+      "rva": "0x2a108d4",
+      "file_offset": "0x2a0c8d4"
+    },
+    "delta": 4716
+  },
+  {
+    "site": "0x2a11b5c",
+    "target": "0x44e5f60",
+    "kind": "bl",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.UI.Screens",
+      "method": "WeaponDetail",
+      "params": "st",
+      "rva": "0x2a108d4",
+      "file_offset": "0x2a0c8d4"
+    },
+    "delta": 4744
+  },
+  {
+    "site": "0x2a2e9fc",
+    "target": "0x44c3a60",
+    "kind": "bl",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "<>c__DisplayClass41_0",
+      "method": "<Settings>b__4",
+      "params": "",
+      "rva": "0x2a2b450",
+      "file_offset": "0x2a27450"
+    },
+    "delta": 13740
+  },
+  {
+    "site": "0x2a53850",
+    "target": "0x44b8f20",
+    "kind": "b",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.UI.Toast",
+      "method": "Show",
+      "params": "toast,msg,error",
+      "rva": "0x2a53440",
+      "file_offset": "0x2a4f440"
+    },
+    "delta": 1040
+  },
+  {
+    "site": "0x2a5ddfc",
+    "target": "0x44da6a0",
+    "kind": "b",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.UI.ItemInfo",
+      "method": "Show",
+      "params": "s",
+      "rva": "0x2a5daa8",
+      "file_offset": "0x2a59aa8"
+    },
+    "delta": 852
+  },
+  {
+    "site": "0x2a5e188",
+    "target": "0x44e5f90",
+    "kind": "bl",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.UI.ItemInfo",
+      "method": "Show",
+      "params": "s",
+      "rva": "0x2a5daa8",
+      "file_offset": "0x2a59aa8"
+    },
+    "delta": 1760
+  },
+  {
+    "site": "0x2a5e36c",
+    "target": "0x44da7f0",
+    "kind": "b",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.UI.ItemInfo",
+      "method": "Show",
+      "params": "s",
+      "rva": "0x2a5daa8",
+      "file_offset": "0x2a59aa8"
+    },
+    "delta": 2244
+  },
+  {
+    "site": "0x2a5f084",
+    "target": "0x44db2f0",
+    "kind": "b",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.UI.ItemInfo",
+      "method": "Show",
+      "params": "s",
+      "rva": "0x2a5daa8",
+      "file_offset": "0x2a59aa8"
+    },
+    "delta": 5596
+  },
+  {
+    "site": "0x2a5f1c4",
+    "target": "0x44da940",
+    "kind": "b",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.UI.ItemInfo",
+      "method": "Show",
+      "params": "s",
+      "rva": "0x2a5daa8",
+      "file_offset": "0x2a59aa8"
+    },
+    "delta": 5916
+  },
+  {
+    "site": "0x2a5f1d0",
+    "target": "0x44e5f70",
+    "kind": "bl",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.UI.ItemInfo",
+      "method": "Show",
+      "params": "s",
+      "rva": "0x2a5daa8",
+      "file_offset": "0x2a59aa8"
+    },
+    "delta": 5928
+  },
+  {
+    "site": "0x2a5f508",
+    "target": "0x44dc2d0",
+    "kind": "b",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.UI.ItemInfo",
+      "method": "Show",
+      "params": "s",
+      "rva": "0x2a5daa8",
+      "file_offset": "0x2a59aa8"
+    },
+    "delta": 6752
+  },
+  {
+    "site": "0x2a5fb70",
+    "target": "0x44daa90",
+    "kind": "b",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.UI.ItemInfo",
+      "method": "Show",
+      "params": "s",
+      "rva": "0x2a5daa8",
+      "file_offset": "0x2a59aa8"
+    },
+    "delta": 8392
+  },
+  {
+    "site": "0x2a85d5c",
+    "target": "0x44b6240",
+    "kind": "b",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.Core.Game",
+      "method": "StartRaid",
+      "params": "levelId,resume,raidTime",
+      "rva": "0x2a85378",
+      "file_offset": "0x2a81378"
+    },
+    "delta": 2532
+  },
+  {
+    "site": "0x2a85d6c",
+    "target": "0x44b6540",
+    "kind": "b",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.Core.Game",
+      "method": "StartRaid",
+      "params": "levelId,resume,raidTime",
+      "rva": "0x2a85378",
+      "file_offset": "0x2a81378"
+    },
+    "delta": 2548
+  },
+  {
+    "site": "0x2a86878",
+    "target": "0x44b8c20",
+    "kind": "b",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.Core.Game",
+      "method": "StartRaid",
+      "params": "levelId,resume,raidTime",
+      "rva": "0x2a85378",
+      "file_offset": "0x2a81378"
+    },
+    "delta": 5376
+  },
+  {
+    "site": "0x2a86898",
+    "target": "0x44bd1f0",
+    "kind": "b",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.Core.Game",
+      "method": "StartRaid",
+      "params": "levelId,resume,raidTime",
+      "rva": "0x2a85378",
+      "file_offset": "0x2a81378"
+    },
+    "delta": 5408
+  },
+  {
+    "site": "0x2a8689c",
+    "target": "0x44c36b0",
+    "kind": "b",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.Core.Game",
+      "method": "StartRaid",
+      "params": "levelId,resume,raidTime",
+      "rva": "0x2a85378",
+      "file_offset": "0x2a81378"
+    },
+    "delta": 5412
+  },
+  {
+    "site": "0x2a86fa4",
+    "target": "0x44d7690",
+    "kind": "b",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.Core.Game",
+      "method": "ApplyRaidSave",
+      "params": "r,pc",
+      "rva": "0x2a86fa4",
+      "file_offset": "0x2a82fa4"
+    },
+    "delta": 0
+  },
+  {
+    "site": "0x2a8b4d8",
+    "target": "0x44c38e0",
+    "kind": "b",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.Core.Game",
+      "method": "Update",
+      "params": "",
+      "rva": "0x2a8b4d8",
+      "file_offset": "0x2a874d8"
+    },
+    "delta": 0
+  },
+  {
+    "site": "0x2aca598",
+    "target": "0x44dc7d0",
+    "kind": "b",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.Core.SpriteDB",
+      "method": "ItemIcon",
+      "params": "it",
+      "rva": "0x2aca598",
+      "file_offset": "0x2ac6598"
+    },
+    "delta": 0
+  },
+  {
+    "site": "0x2aca8cc",
+    "target": "0x44dc800",
+    "kind": "b",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.Core.SpriteDB",
+      "method": "ItemDropped",
+      "params": "it",
+      "rva": "0x2aca8cc",
+      "file_offset": "0x2ac68cc"
+    },
+    "delta": 0
+  },
+  {
+    "site": "0x2af557c",
+    "target": "0x44b2290",
+    "kind": "b",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.World.LootRules",
+      "method": ".cctor",
+      "params": "",
+      "rva": "0x2aeb9cc",
+      "file_offset": "0x2ae79cc"
+    },
+    "delta": 39856
+  },
+  {
+    "site": "0x2af5648",
+    "target": "0x44b22a0",
+    "kind": "b",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.World.LootRules",
+      "method": ".cctor",
+      "params": "",
+      "rva": "0x2aeb9cc",
+      "file_offset": "0x2ae79cc"
+    },
+    "delta": 40060
+  },
+  {
+    "site": "0x2af5730",
+    "target": "0x44b22b0",
+    "kind": "b",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.World.LootRules",
+      "method": ".cctor",
+      "params": "",
+      "rva": "0x2aeb9cc",
+      "file_offset": "0x2ae79cc"
+    },
+    "delta": 40292
+  },
+  {
+    "site": "0x2af8c20",
+    "target": "0x44b22c0",
+    "kind": "bl",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.Combat.WeaponUser",
+      "method": "Attack",
+      "params": "dir",
+      "rva": "0x2af85b0",
+      "file_offset": "0x2af45b0"
+    },
+    "delta": 1648
+  },
+  {
+    "site": "0x2afdec8",
+    "target": "0x44b22c0",
+    "kind": "bl",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.Combat.WeaponUser",
+      "method": "ChoreoHit",
+      "params": "dir,ab,sector",
+      "rva": "0x2afdcd4",
+      "file_offset": "0x2af9cd4"
+    },
+    "delta": 500
+  },
+  {
+    "site": "0x2b13d3c",
+    "target": "0x44c3bcc",
+    "kind": "bl",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.Combat.NoiseMeter",
+      "method": "Redraw",
+      "params": "",
+      "rva": "0x2b13bd0",
+      "file_offset": "0x2b0fbd0"
+    },
+    "delta": 364
+  },
+  {
+    "site": "0x2b21b50",
+    "target": "0x44b4ef0",
+    "kind": "b",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.Actors.Actor",
+      "method": "OnEnable",
+      "params": "",
+      "rva": "0x2b21b50",
+      "file_offset": "0x2b1db50"
+    },
+    "delta": 0
+  },
+  {
+    "site": "0x2b23c5c",
+    "target": "0x44b48f0",
+    "kind": "b",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.Actors.Actor",
+      "method": "Update",
+      "params": "",
+      "rva": "0x2b23b84",
+      "file_offset": "0x2b1fb84"
+    },
+    "delta": 216
+  },
+  {
+    "site": "0x2b24b58",
+    "target": "0x44b4bf0",
+    "kind": "b",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.Actors.Actor",
+      "method": "TakeDamage",
+      "params": "amount,source,canBlock,kind",
+      "rva": "0x2b247ac",
+      "file_offset": "0x2b207ac"
+    },
+    "delta": 940
+  },
+  {
+    "site": "0x2b26128",
+    "target": "0x44bdfe0",
+    "kind": "b",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.Actors.AutoAim",
+      "method": "Update",
+      "params": "",
+      "rva": "0x2b25f00",
+      "file_offset": "0x2b21f00"
+    },
+    "delta": 552
+  },
+  {
+    "site": "0x2b26230",
+    "target": "0x44be2e0",
+    "kind": "b",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.Actors.AutoAim",
+      "method": "Update",
+      "params": "",
+      "rva": "0x2b25f00",
+      "file_offset": "0x2b21f00"
+    },
+    "delta": 816
+  },
+  {
+    "site": "0x2b33140",
+    "target": "0x44d6024",
+    "kind": "b",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.Actors.PlayerController",
+      "method": "OnDestroy",
+      "params": "",
+      "rva": "0x2b33140",
+      "file_offset": "0x2b2f140"
+    },
+    "delta": 0
+  },
+  {
+    "site": "0x2b35398",
+    "target": "0x44d6398",
+    "kind": "b",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.Actors.PlayerController",
+      "method": "Update",
+      "params": "",
+      "rva": "0x2b35398",
+      "file_offset": "0x2b31398"
+    },
+    "delta": 0
+  },
+  {
+    "site": "0x2b361c4",
+    "target": "0x44ac7a0",
+    "kind": "b",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.Actors.PlayerController",
+      "method": "Update",
+      "params": "",
+      "rva": "0x2b35398",
+      "file_offset": "0x2b31398"
+    },
+    "delta": 3628
+  },
+  {
+    "site": "0x2b363b0",
+    "target": "0x44ac8a0",
+    "kind": "b",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.Actors.PlayerController",
+      "method": "Update",
+      "params": "",
+      "rva": "0x2b35398",
+      "file_offset": "0x2b31398"
+    },
+    "delta": 4120
+  },
+  {
+    "site": "0x2b3a850",
+    "target": "0x44d60b0",
+    "kind": "b",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.Actors.PlayerController",
+      "method": "Consume",
+      "params": "s",
+      "rva": "0x2b3a850",
+      "file_offset": "0x2b36850"
+    },
+    "delta": 0
+  },
+  {
+    "site": "0x2b44338",
+    "target": "0x44d7bf0",
+    "kind": "b",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.World.RaidGenerator",
+      "method": "BunkerChestId",
+      "params": "tier",
+      "rva": "0x2b44338",
+      "file_offset": "0x2b40338"
+    },
+    "delta": 0
+  },
+  {
+    "site": "0x2b44564",
+    "target": "0x44d7d70",
+    "kind": "b",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.World.RaidGenerator",
+      "method": "SpawnContainer",
+      "params": "cid,pos",
+      "rva": "0x2b44564",
+      "file_offset": "0x2b40564"
+    },
+    "delta": 0
+  },
+  {
+    "site": "0x2b44a0c",
+    "target": "0x44d7a80",
+    "kind": "b",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.World.RaidGenerator",
+      "method": "PlaceBunkerLoot",
+      "params": "lay,origin,rng",
+      "rva": "0x2b44a0c",
+      "file_offset": "0x2b40a0c"
+    },
+    "delta": 0
+  },
+  {
+    "site": "0x2b679a0",
+    "target": "0x44d7240",
+    "kind": "b",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.World.RaidGenerator",
+      "method": "Generate",
+      "params": "levelId,seed",
+      "rva": "0x2b679a0",
+      "file_offset": "0x2b639a0"
+    },
+    "delta": 0
+  },
+  {
+    "site": "0x2b67a08",
+    "target": "0x44d73d0",
+    "kind": "b",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.World.RaidGenerator",
+      "method": "GenerateWithVersion",
+      "params": "levelId,seed,generationVersion",
+      "rva": "0x2b67a08",
+      "file_offset": "0x2b63a08"
+    },
+    "delta": 0
+  },
+  {
+    "site": "0x2b686c4",
+    "target": "0x44d7530",
+    "kind": "b",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.World.RaidGenerator",
+      "method": "Build",
+      "params": "levelId",
+      "rva": "0x2b686c4",
+      "file_offset": "0x2b646c4"
+    },
+    "delta": 0
+  },
+  {
+    "site": "0x2b6a018",
+    "target": "0x44d5970",
+    "kind": "b",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.World.RaidGenerator",
+      "method": "Build",
+      "params": "levelId",
+      "rva": "0x2b686c4",
+      "file_offset": "0x2b646c4"
+    },
+    "delta": 6484
+  },
+  {
+    "site": "0x2b74210",
+    "target": "0x44bf910",
+    "kind": "b",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.World.RaidGenerator",
+      "method": "PlaceMainChest",
+      "params": "",
+      "rva": "0x2b73fc8",
+      "file_offset": "0x2b6ffc8"
+    },
+    "delta": 584
+  },
+  {
+    "site": "0x2b74ffc",
+    "target": "0x44bd9f0",
+    "kind": "b",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.World.RaidGenerator",
+      "method": "PlaceMainChest",
+      "params": "",
+      "rva": "0x2b73fc8",
+      "file_offset": "0x2b6ffc8"
+    },
+    "delta": 4148
+  },
+  {
+    "site": "0x2b778a0",
+    "target": "0x44b6840",
+    "kind": "b",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.World.RaidGenerator",
+      "method": "SpawnBosses",
+      "params": "",
+      "rva": "0x2b778a0",
+      "file_offset": "0x2b738a0"
+    },
+    "delta": 0
+  },
+  {
+    "site": "0x2b77a48",
+    "target": "0x44b5f40",
+    "kind": "b",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.World.RaidGenerator",
+      "method": "SpawnBosses",
+      "params": "",
+      "rva": "0x2b778a0",
+      "file_offset": "0x2b738a0"
+    },
+    "delta": 424
+  },
+  {
+    "site": "0x2b77a60",
+    "target": "0x44b6b40",
+    "kind": "b",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.World.RaidGenerator",
+      "method": "SpawnBosses",
+      "params": "",
+      "rva": "0x2b778a0",
+      "file_offset": "0x2b738a0"
+    },
+    "delta": 448
+  },
+  {
+    "site": "0x2b77a98",
+    "target": "0x44b6e40",
+    "kind": "b",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.World.RaidGenerator",
+      "method": "SpawnBosses",
+      "params": "",
+      "rva": "0x2b778a0",
+      "file_offset": "0x2b738a0"
+    },
+    "delta": 504
+  },
+  {
+    "site": "0x2b77ac0",
+    "target": "0x44b7140",
+    "kind": "b",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.World.RaidGenerator",
+      "method": "SpawnBosses",
+      "params": "",
+      "rva": "0x2b778a0",
+      "file_offset": "0x2b738a0"
+    },
+    "delta": 544
+  },
+  {
+    "site": "0x2b77af8",
+    "target": "0x44b7440",
+    "kind": "b",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.World.RaidGenerator",
+      "method": "SpawnBosses",
+      "params": "",
+      "rva": "0x2b778a0",
+      "file_offset": "0x2b738a0"
+    },
+    "delta": 600
+  },
+  {
+    "site": "0x2b782e4",
+    "target": "0x44bb4f0",
+    "kind": "b",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.World.RaidGenerator",
+      "method": "SpawnMutatedDeath",
+      "params": "",
+      "rva": "0x2b782e4",
+      "file_offset": "0x2b742e4"
+    },
+    "delta": 0
+  },
+  {
+    "site": "0x2b783dc",
+    "target": "0x44bbaf0",
+    "kind": "b",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.World.RaidGenerator",
+      "method": "SpawnMutatedDeath",
+      "params": "",
+      "rva": "0x2b782e4",
+      "file_offset": "0x2b742e4"
+    },
+    "delta": 248
+  },
+  {
+    "site": "0x2b78468",
+    "target": "0x44bc0f0",
+    "kind": "b",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.World.RaidGenerator",
+      "method": "SpawnMutatedDeath",
+      "params": "",
+      "rva": "0x2b782e4",
+      "file_offset": "0x2b742e4"
+    },
+    "delta": 388
+  },
+  {
+    "site": "0x2b78498",
+    "target": "0x44bc6f0",
+    "kind": "b",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.World.RaidGenerator",
+      "method": "SpawnMutatedDeath",
+      "params": "",
+      "rva": "0x2b782e4",
+      "file_offset": "0x2b742e4"
+    },
+    "delta": 436
+  },
+  {
+    "site": "0x2b784c0",
+    "target": "0x44bcaf0",
+    "kind": "b",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.World.RaidGenerator",
+      "method": "SpawnMutatedDeath",
+      "params": "",
+      "rva": "0x2b782e4",
+      "file_offset": "0x2b742e4"
+    },
+    "delta": 476
+  },
+  {
+    "site": "0x2b784cc",
+    "target": "0x44d9b90",
+    "kind": "bl",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.World.RaidGenerator",
+      "method": "SpawnMutatedDeath",
+      "params": "",
+      "rva": "0x2b782e4",
+      "file_offset": "0x2b742e4"
+    },
+    "delta": 488
+  },
+  {
+    "site": "0x2b78500",
+    "target": "0x44d9d30",
+    "kind": "b",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.World.RaidGenerator",
+      "method": "SpawnMutatedDeath",
+      "params": "",
+      "rva": "0x2b782e4",
+      "file_offset": "0x2b742e4"
+    },
+    "delta": 540
+  },
+  {
+    "site": "0x2b8ae58",
+    "target": "0x44d53f0",
+    "kind": "b",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.World.RaidGenerator",
+      "method": "GiveChestKey",
+      "params": "chest",
+      "rva": "0x2b8ae58",
+      "file_offset": "0x2b86e58"
+    },
+    "delta": 0
+  },
+  {
+    "site": "0x2b8b14c",
+    "target": "0x44da030",
+    "kind": "b",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.World.RaidGenerator",
+      "method": "GiveChestKey",
+      "params": "chest",
+      "rva": "0x2b8ae58",
+      "file_offset": "0x2b86e58"
+    },
+    "delta": 756
+  },
+  {
+    "site": "0x2b8b1bc",
+    "target": "0x44d9ec0",
+    "kind": "bl",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.World.RaidGenerator",
+      "method": "GiveChestKey",
+      "params": "chest",
+      "rva": "0x2b8ae58",
+      "file_offset": "0x2b86e58"
+    },
+    "delta": 868
+  },
+  {
+    "site": "0x2b8bb44",
+    "target": "0x44b2220",
+    "kind": "b",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.World.RaidGenerator",
+      "method": "ChestTierWeights",
+      "params": "danger,levelName,dataRedShare",
+      "rva": "0x2b8baa4",
+      "file_offset": "0x2b87aa4"
+    },
+    "delta": 160
+  },
+  {
+    "site": "0x2b8becc",
+    "target": "0x44d7f00",
+    "kind": "b",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.World.RaidGenerator",
+      "method": "DropKeyNear",
+      "params": "key,at",
+      "rva": "0x2b8becc",
+      "file_offset": "0x2b87ecc"
+    },
+    "delta": 0
+  },
+  {
+    "site": "0x2be6e6c",
+    "target": "0x44dabf0",
+    "kind": "b",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.Items.HandParts",
+      "method": "WithoutMagazine",
+      "params": "src,a",
+      "rva": "0x2be6cd8",
+      "file_offset": "0x2be2cd8"
+    },
+    "delta": 404
+  },
+  {
+    "site": "0x2be86c8",
+    "target": "0x44d84f0",
+    "kind": "b",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.Items.Inventory",
+      "method": "Add",
+      "params": "stack,respectWeight",
+      "rva": "0x2be86c8",
+      "file_offset": "0x2be46c8"
+    },
+    "delta": 0
+  },
+  {
+    "site": "0x2be8c28",
+    "target": "0x44bde60",
+    "kind": "b",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.Items.HelmetParts",
+      "method": "get_NightVisionWorn",
+      "params": "",
+      "rva": "0x2be8c28",
+      "file_offset": "0x2be4c28"
+    },
+    "delta": 0
+  },
+  {
+    "site": "0x2be9c80",
+    "target": "0x44ac3a0",
+    "kind": "b",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.Items.Equipment",
+      "method": "get_ActiveWeapon",
+      "params": "",
+      "rva": "0x2be9c54",
+      "file_offset": "0x2be5c54"
+    },
+    "delta": 44
+  },
+  {
+    "site": "0x2bea270",
+    "target": "0x44ac4a0",
+    "kind": "b",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.Items.Equipment",
+      "method": "BestSlotFor",
+      "params": "def",
+      "rva": "0x2bea1ec",
+      "file_offset": "0x2be61ec"
+    },
+    "delta": 132
+  },
+  {
+    "site": "0x2bea3e8",
+    "target": "0x44ac5a0",
+    "kind": "b",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.Items.Equipment",
+      "method": "BestSlotFor",
+      "params": "def",
+      "rva": "0x2bea1ec",
+      "file_offset": "0x2be61ec"
+    },
+    "delta": 508
+  },
+  {
+    "site": "0x2beadb8",
+    "target": "0x44ac9a0",
+    "kind": "b",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.Items.Equipment",
+      "method": "StatSum",
+      "params": "attr",
+      "rva": "0x2bead3c",
+      "file_offset": "0x2be6d3c"
+    },
+    "delta": 124
+  },
+  {
+    "site": "0x2beafb4",
+    "target": "0x44ac2a0",
+    "kind": "b",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.Items.Equipment",
+      "method": ".ctor",
+      "params": "",
+      "rva": "0x2beaebc",
+      "file_offset": "0x2be6ebc"
+    },
+    "delta": 248
+  },
+  {
+    "site": "0x2bf00f4",
+    "target": "0x44c4aa8",
+    "kind": "bl",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.Items.NativeSuppressorVisual",
+      "method": "Draw",
+      "params": "",
+      "rva": "0x2befc58",
+      "file_offset": "0x2bebc58"
+    },
+    "delta": 1180
+  },
+  {
+    "site": "0x2bf0228",
+    "target": "0x44c4ba4",
+    "kind": "bl",
+    "method": {
+      "assembly": "MDZ2.Runtime.dll",
+      "type": "MDZ2.Items.NativeSuppressorVisual",
+      "method": "Draw",
+      "params": "",
+      "rva": "0x2befc58",
+      "file_offset": "0x2bebc58"
+    },
+    "delta": 1488
+  },
+  {
+    "site": "0x3174a14",
+    "target": "0x44da340",
+    "kind": "b",
+    "method": {
+      "assembly": "UnityEngine.CoreModule.dll",
+      "type": "UnityEngine.Application",
+      "method": "get_persistentDataPath",
+      "params": "",
+      "rva": "0x3174a14",
+      "file_offset": "0x3170a14"
+    },
+    "delta": 0
+  },
+  {
+    "site": "0x3174b80",
+    "target": "0x44da3b0",
+    "kind": "b",
+    "method": {
+      "assembly": "UnityEngine.CoreModule.dll",
+      "type": "UnityEngine.Application",
+      "method": "get_temporaryCachePath",
+      "params": "",
+      "rva": "0x3174b80",
+      "file_offset": "0x3170b80"
+    },
+    "delta": 0
+  },
+  {
+    "site": "0x319b028",
+    "target": "0x44d8a00",
+    "kind": "b",
+    "method": {
+      "assembly": "UnityEngine.CoreModule.dll",
+      "type": "UnityEngine.Texture2D",
+      "method": ".ctor",
+      "params": "width,height,textureFormat,mipCount,linear,nativeTex,createUninitialized,mipmapLimitDescriptor",
+      "rva": "0x319b028",
+      "file_offset": "0x3197028"
+    },
+    "delta": 0
+  },
+  {
+    "site": "0x319b284",
+    "target": "0x44d8680",
+    "kind": "b",
+    "method": {
+      "assembly": "UnityEngine.CoreModule.dll",
+      "type": "UnityEngine.Texture2D",
+      "method": ".ctor",
+      "params": "width,height,textureFormat,mipChain",
+      "rva": "0x319b284",
+      "file_offset": "0x3197284"
+    },
+    "delta": 0
+  },
+  {
+    "site": "0x319b338",
+    "target": "0x44d8840",
+    "kind": "b",
+    "method": {
+      "assembly": "UnityEngine.CoreModule.dll",
+      "type": "UnityEngine.Texture2D",
+      "method": ".ctor",
+      "params": "width,height",
+      "rva": "0x319b338",
+      "file_offset": "0x3197338"
+    },
+    "delta": 0
+  },
+  {
+    "site": "0x32adfac",
+    "target": "0x4000000",
+    "kind": "b",
+    "method": {
+      "assembly": "UnityEngine.TextRenderingModule.dll",
+      "type": "UnityEngine.TextGenerator",
+      "method": "PopulateWithError",
+      "params": "str,settings",
+      "rva": "0x32adfac",
+      "file_offset": "0x32a9fac"
+    },
+    "delta": 0
+  }
+]

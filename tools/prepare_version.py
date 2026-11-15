@@ -10,8 +10,9 @@ from migration_audit import inventory
 
 def main():
     p = argparse.ArgumentParser(description=__doc__)
-    for name in ('stable-apk', 'new-apk', 'port-work', 'out'):
+    for name in ('stable-apk', 'new-apk', 'out'):
         p.add_argument('--'+name, type=Path, required=True)
+    p.add_argument('--port-work',type=Path,help='optional old work directory; defaults to the included P14 hook inventory')
     a = p.parse_args()
     if a.out.exists():
         p.error('output must be a new directory')
@@ -19,8 +20,12 @@ def main():
     import elftools
     import capstone
     from field_offsets import extract
-    a.out.mkdir(parents=True)
     tools = Path(__file__).resolve().parent
+    hooks = (a.port_work/'analysis/injection_hooks.json' if a.port_work else
+             tools.parent/'feature_catalog/p14_legacy_hooks.json')
+    if not hooks.is_file():
+        raise FileNotFoundError('hook inventory missing: '+str(hooks))
+    a.out.mkdir(parents=True)
     state = {'status': 'IN_PROGRESS', 'installable_module': False, 'release_ready': False, 'inputs': {}}
 
     def save():
@@ -48,7 +53,7 @@ def main():
         subprocess.run([sys.executable, str(tools/'compare_native_version.py'),
             '--old-binary', str(a.out/'stable/libil2cpp.so'), '--new-binary', str(a.out/'new/libil2cpp.so'),
             '--old-methods', str(a.out/'stable/parsed/methods.csv'), '--new-methods', str(a.out/'new/parsed/methods.csv'),
-            '--hooks', str(a.port_work/'analysis/injection_hooks.json'), '--out', str(a.out/'anchors.json')], check=True)
+            '--hooks', str(hooks), '--out', str(a.out/'anchors.json')], check=True)
         state.update(status='PLAN_ONLY_NOT_APPLIED',
             limitations=['Legacy method keys omit full parameter types; candidates require ABI and semantic verification.',
                          'Field output distinguishes duplicate type names by index but does not establish field type/static semantics.',

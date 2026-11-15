@@ -1,6 +1,8 @@
 # P Patcher · GitHub 编译工程
 
-Android 安装器完整源码，保留 1.4.0 功能与新增迁移证据分析。支持 GitHub Actions 自动生成 APK，或在 Windows / Linux / macOS 本地编译，无需完整 Android SDK。
+Android 安装器完整源码，保留既有安装与分析功能，重新整理安装流程。支持 GitHub Actions 自动生成 APK，或在 Windows / Linux / macOS 本地编译，无需完整 Android SDK。
+
+1.5.0 将首页整理为选择文件、生成、安装三个步骤；诊断、日志、AI 和高级工具按需使用。检查通过后显示签名插件的功能说明；更换输入或修改插件后，旧输出会标明来源并在操作前提醒。安装器诊断和游戏运行日志现在会明确区分。
 
 ## 在 GitHub 上编译
 
@@ -50,7 +52,7 @@ python -m pip install -r requirements-migration.txt
 python -m unittest discover -s tests -p 'test_*.py' -v
 ```
 
-`tools/prepare_version.py` 是电脑端 P14 → 新版迁移证据入口，不会直接生成已适配游戏。它还需要完整游戏输入和旧迁移工作目录，未包含在本仓库。插件格式见 [MODULE_FORMAT.md](MODULE_FORMAT.md)。
+一条命令 `python tools/scan_update.py --new-apk "新版.apk" --stable-apk "稳定P14.apk" --out "本次分析"` 可生成电脑端的精简差异报告；这不生成可安装插件。详见 [版本适配工作流.md](版本适配工作流.md)。插件格式见 [MODULE_FORMAT.md](MODULE_FORMAT.md)。
 
 ## 工程改动
 
@@ -61,6 +63,6 @@ python -m unittest discover -s tests -p 'test_*.py' -v
 - 忽略构建缓存、产物、私钥及游戏 APK。
 - 工程整理不代表 1.5.5 游戏功能移植完成；Android 真机运行仍需验证。
 
-本地已完成实际 APK 编译、签名/清单/资源检查，并用临时证书验证固定签名入口。尚未在 GitHub 托管环境运行工作流，详细记录见 [BUILD_VALIDATION.json](BUILD_VALIDATION.json)。
+本地已用原签名身份编译 1.5.0，并完成签名/清单/资源检查；也用真实 1.5.5 APK 和插件验证安装器核心构建。尚未在 GitHub 托管环境或 Android 设备上运行，详细记录见 [BUILD_VALIDATION.json](BUILD_VALIDATION.json)。
 
 参考：[GitHub Python 工作流](https://docs.github.com/en/actions/tutorials/build-and-test-code/python)、[构建产物上传](https://github.com/actions/upload-artifact)。
