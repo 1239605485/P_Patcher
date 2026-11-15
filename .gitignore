@@ -1,0 +1,17 @@
+build/
+output/
+toolchain/
+.venv/
+__pycache__/
+*.pyc
+*.pem
+*.key
+*.jks
+*.keystore
+*.p12
+*.pfx
+*.apk
+*.apk.*
+.env
+.env.*
+version_evidence*/

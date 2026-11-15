@@ -1,0 +1,15 @@
+{
+  "validated_on": "2026-11-15",
+  "local_platform": "Windows x64",
+  "python": "3.12.14 (isolated virtual environment)",
+  "java": "OpenJDK 17; ECJ Java 8 target; D8 8.3.37",
+  "debug_apk_build": "PASS",
+  "tests_passed": 14,
+  "ci_release_entry": "PASS with generated test certificate and explicit expected fingerprint",
+  "original_private_key_used": false,
+  "apk_v2_signature_and_zip_crc": "PASS",
+  "manifest_and_resource_verification": "PASS",
+  "workflow_yaml_structure": "PASS",
+  "github_hosted_workflow_execution": "NOT_RUN (no remote repository created)",
+  "android_device_execution": "NOT_RUN"
+}

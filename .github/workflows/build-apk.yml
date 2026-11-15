@@ -1,0 +1,52 @@
+name: Build APK
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      release:
+        description: Use the configured release signing key
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: |
+            requirements.txt
+            requirements-migration.txt
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - name: Install dependencies
+        run: python -m pip install -r requirements.txt -r requirements-migration.txt
+      - name: Test migration tools
+        run: python -m unittest discover -s tests -p 'test_*.py' -v
+      - name: Build test APK
+        if: ${{ github.event_name != 'workflow_dispatch' || !inputs.release }}
+        run: python tools/build.py --debug
+      - name: Build release APK
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.release }}
+        env:
+          SIGNING_PEM_BASE64: ${{ secrets.SIGNING_PEM_BASE64 }}
+          SIGNING_CERT_SHA256: ${{ vars.SIGNING_CERT_SHA256 }}
+        run: python tools/ci_release.py
+      - name: Upload APK and verification
+        uses: actions/upload-artifact@v4
+        with:
+          name: P-Patcher-${{ github.run_number }}
+          path: output/*
+          if-no-files-found: error
+          retention-days: 14
