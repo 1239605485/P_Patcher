@@ -39,8 +39,8 @@ public final class StudioUi {
   scroll=new ScrollView(a);scroll.setFillViewport(true);body=new LinearLayout(a);body.setOrientation(LinearLayout.VERTICAL);
   body.setPadding(dp(16),dp(8),dp(16),dp(18));scroll.addView(body);frame.addView(scroll,new LinearLayout.LayoutParams(-1,0,1));
   LinearLayout navBar=new LinearLayout(a);navBar.setPadding(dp(10),dp(7),dp(10),dp(5));navBar.setBackgroundColor(card);
-  tabs=new Button[4];String[] labels={"安装","AI","诊断","设置"};
-  for(int i=0;i<4;i++){
+  tabs=new Button[2];String[] labels={"安装","诊断"};
+  for(int i=0;i<2;i++){
    final int tab=i;Button b=new Button(a);b.setText(labels[i]);b.setTextSize(14);b.setAllCaps(false);
    navBar.addView(b,new LinearLayout.LayoutParams(0,dp(48),1));b.setOnClickListener(new View.OnClickListener(){public void onClick(View v){nav.select(tab);}});tabs[i]=b;
   }
@@ -49,9 +49,9 @@ public final class StudioUi {
  public void scrollToTop(){if(scroll!=null)scroll.post(new Runnable(){public void run(){scroll.scrollTo(0,0);}});}
  public void select(int i){
   if(i<0||i>=tabs.length)i=0;
-  for(int k=0;k<4;k++){tabs[k].setTextColor(k==i?Color.WHITE:muted);tabs[k].setBackgroundDrawable(shape(k==i?accent:card,12));}
-  title.setText(new String[]{"安装游戏插件","AI 适配助手","进度与诊断","连接与设置"}[i]);
-  Jobs j=Jobs.get(a);subtitle.setText("1.5.0  ·  "+(j.file(1).isFile()?j.apkName:"先选择游戏 APK")+(j.busy?"\n"+j.status+" "+j.progress:""));
+  for(int k=0;k<2;k++){tabs[k].setTextColor(k==i?Color.WHITE:muted);tabs[k].setBackgroundDrawable(shape(k==i?accent:card,12));}
+  title.setText(new String[]{"安装游戏插件","进度与诊断"}[i]);
+  Jobs j=Jobs.get(a);subtitle.setText("1.6.0  ·  "+(j.file(1).isFile()?j.apkName:"先选择游戏 APK")+(j.busy?"\n"+j.status+" "+j.progress:""));
  }
  public TextView text(String s,int size,int color){TextView t=new TextView(a);t.setText(s);t.setTextSize(size);t.setTextColor(color);t.setPadding(0,dp(4),0,dp(6));t.setLineSpacing(dp(2),1);return t;}
  public LinearLayout card(LinearLayout parent,String name,String description){
@@ -67,5 +67,5 @@ public final class StudioUi {
   LinearLayout.LayoutParams lp=new LinearLayout.LayoutParams(-1,-2);lp.topMargin=dp(6);lp.bottomMargin=dp(4);p.addView(b,lp);if(click!=null)b.setOnClickListener(click);return b;
  }
  public void field(EditText e){e.setTextColor(ink);e.setHintTextColor(muted);e.setTextSize(15);e.setPadding(dp(12),dp(12),dp(12),dp(12));e.setBackgroundDrawable(shape(bg,10));LinearLayout.LayoutParams lp=new LinearLayout.LayoutParams(-1,-2);lp.topMargin=dp(6);lp.bottomMargin=dp(8);e.setLayoutParams(lp);}
- public static void open(Activity a,int tab){Class<?> target=tab==0||tab==2?MainActivity.class:AiActivity.class;Intent i=new Intent(a,target);i.putExtra("studio_tab",tab);i.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);a.startActivity(i);}
+ public static void open(Activity a,int tab){Intent i=new Intent(a,MainActivity.class);i.putExtra("studio_tab",tab);i.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);a.startActivity(i);}
 }

@@ -8,6 +8,18 @@ ZIP 必须有 `module.json`、`module.sig`、所需的 `payload/*`。`module.sig
 
 `modules` 按依赖顺序排列。模块有 `id`、`name`、`mandatory:true`、`depends_on` 和 `operations`。首版只支持必需模块，必须存在 `isolation-core`；条件匹配不代表功能已实机验证。
 
+## 单功能分包
+
+可把总包拆成 `isolation-core + 一个功能模块` 的独立 ZIP，后续只修改一个功能时无需重新发送整个包：
+
+```text
+P_Patcher_GitHub/.venv/Scripts/python.exe tools/split_module.py \
+  --module 总插件包.zip --key 签名.pem \
+  --module-id p14-features --out feature_packages
+```
+
+输出包保留原 APK 适配档案、payload 和依赖顺序，只重新签名清单。安装器按原有兼容性检查处理；缺少 `isolation-core` 的包会被拒绝。
+
 每个 operation 定义：
 
 ```json

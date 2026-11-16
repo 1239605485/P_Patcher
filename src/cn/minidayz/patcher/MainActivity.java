@@ -17,10 +17,10 @@ public final class MainActivity extends Activity implements Jobs.Listener {
  private Jobs jobs;
  private int page,ink,muted;
  private LinearLayout body,home,tools;
- private TextView source,module,key,next,status,taskStatus,detail,result,buildWindow,structure,logSummary,localSummary;
+ private TextView source,module,key,engineLabel,featuresLabel,next,status,taskStatus,detail,result,buildWindow,structure,logSummary,localSummary;
  private EditText releaseName,releaseVersion;
  private ProgressBar bar;
- private Button pickApk,pickModule,pickKey,check,build,install,save,diagnose,cancel;
+ private Button pickApk,pickModule,pickKey,pickEngine,check,build,install,save,diagnose,cancel;
  private PatchEngine.Plan featurePlan;
  private String featureText="";
  private static final int SAVE_APK=20,SAVE_LOG=21,IMPORT_GAME_LOG=64;
@@ -30,22 +30,27 @@ public final class MainActivity extends Activity implements Jobs.Listener {
   jobs=Jobs.get(this);ui=new StudioUi(this);ink=ui.ink;muted=ui.muted;
   page=getIntent().getIntExtra("studio_tab",0);
   body=ui.mount(page,new StudioUi.Nav(){public void select(int tab){
-   if(tab==0||tab==2)showPage(tab);else StudioUi.open(MainActivity.this,tab);
+   showPage(tab==1?2:0);
   }});
   home=column(body);tools=column(body);
 
-  LinearLayout intro=ui.card(home,"安装前准备","按照下面三步操作。所有文件均通过系统选择器导入，处理在本机进行。");
+  LinearLayout intro=ui.card(home,"插件安装","导入文件 → 查看功能 → 生成 APK → 安装。只在手机本机处理。");
   next=text("",15,ink);next.setTypeface(null,Typeface.BOLD);intro.addView(next);
 
-  LinearLayout inputs=ui.card(home,"1  选择三个文件","依次导入游戏原版 APK、对应版本的插件 ZIP，以及原 P 版签名文件。");
+  LinearLayout inputs=ui.card(home,"1  导入文件","首次使用导入以下四项。以后更新某个功能，只需重新导入它的单独 ZIP。");
   source=text("",14,muted);inputs.addView(source);
   pickApk=button(inputs,"选择游戏 APK",false,new View.OnClickListener(){public void onClick(View v){pick(1);}});
   module=text("",14,muted);inputs.addView(module);
-  pickModule=button(inputs,"选择插件 ZIP",false,new View.OnClickListener(){public void onClick(View v){pick(2);}});
+  pickModule=button(inputs,"导入插件总包 / 单功能 ZIP",false,new View.OnClickListener(){public void onClick(View v){pick(2);}});
+  engineLabel=text("",14,muted);inputs.addView(engineLabel);
+  pickEngine=button(inputs,"导入引擎 ZIP",false,new View.OnClickListener(){public void onClick(View v){pick(4);}});
   key=text("",14,muted);inputs.addView(key);
   pickKey=button(inputs,"选择签名 PEM 或交接 ZIP",false,new View.OnClickListener(){public void onClick(View v){pick(3);}});
 
-  LinearLayout generate=ui.card(home,"2  检查并生成","生成时会自动检查插件与游戏是否匹配。想先查看结果，可单独检查兼容性。");
+  LinearLayout featureCard=ui.card(home,"2  功能清单","勾选本次要装的功能。已导入不等于已安装；成功生成后，安装输出 APK 才会生效。");
+  featuresLabel=text("尚未导入功能包",14,muted);featureCard.addView(featuresLabel);
+  button(featureCard,"选择本次安装的功能",false,new View.OnClickListener(){public void onClick(View v){chooseFeatures();}});
+  LinearLayout generate=ui.card(home,"3  生成 APK","生成时会自动检查插件与游戏是否匹配。想先查看结果，可单独检查兼容性。");
   build=button(generate,"检查并生成 APK",true,new View.OnClickListener(){public void onClick(View v){
    final String name=releaseName.getText().toString(),version=releaseVersion.getText().toString();
    getSharedPreferences("local",0).edit().putString("release_name",name).putString("release_version",version).commit();
@@ -67,7 +72,7 @@ public final class MainActivity extends Activity implements Jobs.Listener {
   releaseName=entry(options,"游戏显示名称","MiniDayZ2 共存版","release_name");
   releaseVersion=entry(options,"游戏版本名称","留空使用插件版本","release_version");
 
-  LinearLayout output=ui.card(home,"3  安装或保存","生成成功后打开系统安装界面。安装前请备份需要保留的游戏存档。");
+  LinearLayout output=ui.card(home,"4  安装或保存","生成成功后打开系统安装界面。安装前请备份需要保留的游戏存档。");
   result=text("",14,muted);output.addView(result);
   install=button(output,"安装上次成功生成的 APK",true,new View.OnClickListener(){public void onClick(View v){install();}});
   save=button(output,"另存上次成功的 APK",false,new View.OnClickListener(){public void onClick(View v){saveAs(false);}});
@@ -85,33 +90,15 @@ public final class MainActivity extends Activity implements Jobs.Listener {
   diagnose=button(progress,"导出安装器诊断 ZIP",false,new View.OnClickListener(){public void onClick(View v){saveAs(true);}});
   progress.addView(text("如果游戏运行时闪退，请另从游戏内导出诊断；这里导出的是安装器记录。",12,muted));
 
-  LinearLayout logs=collapsible(tools,"游戏闪退或运行错误","先在游戏内导出诊断 ZIP，再导入这里；发送 AI 前会预览。",false);
+  LinearLayout logs=collapsible(tools,"游戏闪退或运行错误","先在游戏内导出诊断 ZIP，再导入这里，一起包含在安装器诊断中。",false);
   logSummary=text("尚未导入游戏诊断包。",13,muted);logs.addView(logSummary);
   button(logs,"导入游戏诊断 ZIP",false,new View.OnClickListener(){public void onClick(View v){pick(IMPORT_GAME_LOG);}});
-  button(logs,"查看日志并咨询 AI",false,new View.OnClickListener(){public void onClick(View v){StudioUi.open(MainActivity.this,1);}});
-  button(logs,"日志没有版本时确认归属",false,new View.OnClickListener(){public void onClick(View v){confirmLogAssociation();}});
   button(logs,"清空已导入游戏日志",false,new View.OnClickListener(){public void onClick(View v){
    if(jobs.busy)return;new File(jobs.root,"game-log.txt").delete();new File(jobs.root,"game-log-meta.json").delete();
    logSummary.setText("尚未导入游戏诊断包。");jobs.status="已清空导入的日志";changed();
   }});
 
-  LinearLayout scan=collapsible(tools,"新版 APK 结构分析","只读分析引擎、DEX、原生库和元数据，供人工或 AI 定位；不会自动移植原生功能。",false);
-  structure=text("尚未运行项目分析。",13,muted);structure.setTextIsSelectable(true);scan.addView(structure);
-  button(scan,"分析当前 APK",false,new View.OnClickListener(){public void onClick(View v){
-   if(!jobs.busy)jobs.begin("分析APK结构",new Jobs.Work(){public void run(Jobs j)throws Exception{ProjectAnalysis.run(j);}});
-  }});
-  button(scan,"带着项目咨询 AI",false,new View.OnClickListener(){public void onClick(View v){StudioUi.open(MainActivity.this,1);}});
-
-  LinearLayout assist=collapsible(tools,"本地诊断与已验证修复","离线核对输入和日志。只有经过游戏实测确认、输入完全匹配的规则才可复用。",false);
-  localSummary=text("尚未运行本地诊断。",13,muted);localSummary.setTextIsSelectable(true);assist.addView(localSummary);
-  button(assist,"运行本地诊断",false,new View.OnClickListener(){public void onClick(View v){
-   if(!jobs.busy)jobs.begin("本地自主诊断",new Jobs.Work(){public void run(Jobs j)throws Exception{LocalAssistant.run(j,false);}});
-  }});
-  button(assist,"使用已验证规则处理并生成",false,new View.OnClickListener(){public void onClick(View v){
-   if(!jobs.busy)jobs.begin("本地自动处理并生成APK",new Jobs.Work(){public void run(Jobs j)throws Exception{LocalAssistant.run(j,true);}});
-  }});
-  button(assist,"确认最近修复已在游戏实测通过",false,new View.OnClickListener(){public void onClick(View v){confirmRepair();}});
-
+  structure=text("",13,muted);localSummary=text("",13,muted);
   LinearLayout maintenance=collapsible(tools,"其他工具","清理只针对未完成的构建缓存。",false);
   button(maintenance,"清理未完成的构建缓存",false,new View.OnClickListener(){public void onClick(View v){
    if(jobs.busy)return;FilesEx.deleteTree(new File(jobs.root,"jobs"));new File(jobs.root,"import.pending").delete();
@@ -157,7 +144,7 @@ public final class MainActivity extends Activity implements Jobs.Listener {
  @Override public void onResume(){super.onResume();if(jobs!=null)jobs.listen(this);}
  int dp(int n){return (int)(getResources().getDisplayMetrics().density*n+.5f);}
  TextView text(String s,int size,int color){TextView t=new TextView(this);t.setText(s);t.setTextSize(size);t.setTextColor(color);t.setPadding(0,dp(4),0,dp(7));t.setLineSpacing(dp(2),1f);return t;}
- void showPage(int tab){page=tab==2?2:0;ui.select(page);home.setVisibility(page==0?View.VISIBLE:View.GONE);tools.setVisibility(page==2?View.VISIBLE:View.GONE);ui.scrollToTop();}
+ void showPage(int tab){page=tab==2?2:0;ui.select(page==2?1:0);home.setVisibility(page==0?View.VISIBLE:View.GONE);tools.setVisibility(page==2?View.VISIBLE:View.GONE);ui.scrollToTop();}
  @Override protected void onNewIntent(Intent i){super.onNewIntent(i);setIntent(i);showPage(i.getIntExtra("studio_tab",0));}
  EditText entry(LinearLayout parent,String title,String hint,final String pref){
   parent.addView(text(title,14,ink));EditText e=new EditText(this);e.setTextSize(16);e.setTextColor(ink);e.setHintTextColor(muted);e.setSingleLine(true);e.setHint(hint);
@@ -169,12 +156,15 @@ public final class MainActivity extends Activity implements Jobs.Listener {
  Button button(LinearLayout parent,String label,boolean primary,View.OnClickListener click){return ui.button(parent,label,primary,click);}
 
  public void changed(){
-  if(source==null)return;ui.select(page);
+  if(source==null)return;ui.select(page==2?1:0);
   boolean hasApk=jobs.file(1).isFile(),hasModule=jobs.file(2).isFile();
   source.setText(hasApk?"已选择游戏："+jobs.apkName:"未选择游戏 APK");
   module.setText(hasModule?"已选择插件："+jobs.moduleName:"未选择插件 ZIP");
+  engineLabel.setText(jobs.file(4).isFile()?"已导入引擎："+getSharedPreferences("local",0).getString("engine_name",""):"未导入引擎 ZIP（数据功能需要）");
+  pickEngine.setEnabled(!jobs.busy);
+  featuresLabel.setText(featureList());
   key.setText(jobs.keyReady?"已导入签名文件 · 生成时会再次核验":"未导入签名文件");
-  String hint=jobs.busy?"正在处理，请等待完成。":!hasApk?"下一步：选择游戏 APK。":!hasModule?"下一步：选择对应版本的插件 ZIP。":!jobs.keyReady?"下一步：导入原 P 版签名文件。":"文件已准备，可检查并生成 APK。";
+  String hint=jobs.busy?"正在处理，请等待完成。":!hasApk?"下一步：选择游戏 APK。":!hasModule?"下一步：选择对应版本的插件 ZIP。":!jobs.file(4).isFile()?"下一步：导入配套引擎 ZIP。":!jobs.keyReady?"下一步：导入原 P 版签名文件。":"文件已准备，可检查并生成 APK。";
   next.setText(hint);String task=jobs.status+(jobs.progress.length()>0?"  "+jobs.progress:"");status.setText(task);taskStatus.setText("当前状态："+task+"\n以下详情是最近一次检查或构建，可能早于当前任务。");
   String d="";if(jobs.plan!=null)try{
    d="已匹配："+jobs.plan.profile.getString("name")+"\n目标版本："+jobs.plan.profile.getString("output_version")+"\n"+(jobs.plan.matchMode.equals("exact")?"输入完整校验匹配":"已通过逐文件兼容校验");
@@ -187,7 +177,7 @@ public final class MainActivity extends Activity implements Jobs.Listener {
   releaseName.setEnabled(idle);releaseVersion.setEnabled(idle);if(jobs.plan!=null)releaseVersion.setHint(jobs.plan.profile.optString("output_version"));
   pickApk.setEnabled(idle);pickModule.setEnabled(idle);pickKey.setEnabled(idle);check.setEnabled(idle&&hasApk&&hasModule);build.setEnabled(idle&&hasApk&&hasModule&&jobs.keyReady);
   boolean has=jobs.output!=null&&jobs.output.isFile();install.setEnabled(idle&&has);save.setEnabled(idle&&has);diagnose.setEnabled(idle);
-  for(Button b:new Button[]{pickApk,pickModule,pickKey,check,build,install,save,diagnose})b.setAlpha(b.isEnabled()?1f:.42f);
+  for(Button b:new Button[]{pickApk,pickModule,pickKey,pickEngine,check,build,install,save,diagnose})b.setAlpha(b.isEnabled()?1f:.42f);
   int outputState=outputState();String origin=outputState==2?"已确认对应当前输入":outputState==1?"输入已更换，建议先重新生成":"来源尚未确认，建议先重新生成";
   result.setText(has?"上次成功结果："+jobs.outputLabel+"\n"+origin+"。":"还没有成功生成的 APK。");
   try{JSONObject local=new JSONObject(new String(FilesEx.read(new FileInputStream(new File(jobs.root,"local-assistant.json")),1048576),"UTF-8"));localSummary.setText("最近诊断（输入或日志变化后请重新运行）\n"+LocalAssistant.render(local));}catch(Exception ignored){}
@@ -205,7 +195,7 @@ public final class MainActivity extends Activity implements Jobs.Listener {
    JSONArray items=FeatureGuide.describe(plan.module,plan.profile);
    StringBuilder s=new StringBuilder("\n\n插件说明（插件声明，功能仍需游戏测试）：");
    if(provided==null||provided.length()==0)s.append("\n此插件未提供功能说明，以下仅为模块名称。");
-   for(int i=0;i<Math.min(items.length(),6);i++){
+   for(int i=0;i<items.length();i++){
     JSONObject item=items.getJSONObject(i);
     String name=shortText(item.optString("name",item.optString("module_id","未命名模块")),48);
     String description=shortText(item.optString("description",""),100);
@@ -213,13 +203,15 @@ public final class MainActivity extends Activity implements Jobs.Listener {
     if(provided!=null&&provided.length()>0&&description.length()>0)s.append("：").append(description);
    }
    if(items.length()==0)s.append("\n没有可显示的功能说明。");
-   if(items.length()>6)s.append("\n还有 ").append(items.length()-6).append(" 项未在此展开。");
+
    featureText=s.toString();
   }catch(Exception e){featureText="\n\n插件说明暂不可显示；功能仍需游戏测试。";}
   return featureText;
  }
  String shortText(String value,int limit){String clean=value.replace('\n',' ').replace('\r',' ').trim();if(clean.length()<=limit)return clean;int end=Character.isHighSurrogate(clean.charAt(limit-1))?limit-1:limit;return clean.substring(0,end)+"…";}
 
+ String featureList(){try{JSONArray list=FeaturePackages.inventory(jobs.root);StringBuilder s=new StringBuilder();for(int i=0;i<list.length();i++){JSONObject f=list.getJSONObject(i);s.append(f.getBoolean("enabled")?"☑ 待生成  ":"☐ 未启用  ").append(f.getString("name")).append("\n");}return list.length()==0?"尚未导入功能包":s.toString()+"\n当前输出："+(jobs.output==null?"尚未生成":outputState()==2?"已按当前选择生成，安装后生效":"选择已变化，请重新生成");}catch(Exception e){return "功能清单读取失败："+e.getMessage();}}
+ void chooseFeatures(){if(jobs.busy)return;try{final JSONArray list=FeaturePackages.inventory(jobs.root);final java.util.ArrayList<String> ids=new java.util.ArrayList<String>();java.util.ArrayList<String> names=new java.util.ArrayList<String>();java.util.ArrayList<Boolean> enabled=new java.util.ArrayList<Boolean>();for(int i=0;i<list.length();i++){JSONObject f=list.getJSONObject(i);if(f.getString("id").equals("isolation-core"))continue;ids.add(f.getString("id"));names.add(f.getString("name"));enabled.add(f.getBoolean("enabled"));}if(ids.size()==0){Toast.makeText(this,"请先导入插件总包或数据功能 ZIP",Toast.LENGTH_LONG).show();return;}final boolean[] checked=new boolean[ids.size()];for(int i=0;i<checked.length;i++)checked[i]=enabled.get(i);new AlertDialog.Builder(this).setTitle("选择功能 · 基础包始终启用").setMultiChoiceItems(names.toArray(new String[0]),checked,new DialogInterface.OnMultiChoiceClickListener(){public void onClick(DialogInterface d,int which,boolean value){checked[which]=value;}}).setNegativeButton("取消",null).setPositiveButton("保存选择",new DialogInterface.OnClickListener(){public void onClick(DialogInterface d,int which){jobs.begin("保存功能选择",new Jobs.Work(){public void run(Jobs j)throws Exception{FeaturePackages.select(j.root,ids,checked,FilesEx.read(getAssets().open("trust.der"),16384),j);j.plan=null;getSharedPreferences("local",0).edit().putBoolean("previous_output_stale",true).commit();j.stage("features","功能选择已保存，请重新生成 APK");}});}}).show();}catch(Exception e){Toast.makeText(this,e.getMessage(),Toast.LENGTH_LONG).show();}}
  void pick(int kind){if(jobs.busy)return;Intent i=new Intent("android.intent.action.OPEN_DOCUMENT");i.addCategory(Intent.CATEGORY_OPENABLE);i.setType("*/*");i.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION|64);try{startActivityForResult(i,kind);}catch(Exception e){Toast.makeText(this,"无法打开系统文件选择器",Toast.LENGTH_LONG).show();}}
  String display(Uri uri){Cursor c=null;try{c=getContentResolver().query(uri,new String[]{"_display_name"},null,null,null);if(c!=null&&c.moveToFirst())return c.getString(0);}catch(Exception ignored){}finally{if(c!=null)c.close();}return "已选择文件";}
  /** 0 = unknown historical provenance, 1 = previous input, 2 = current input. */
@@ -238,7 +230,7 @@ public final class MainActivity extends Activity implements Jobs.Listener {
  @Override protected void onActivityResult(final int request,int code,Intent data){
   super.onActivityResult(request,code,data);if(code!=RESULT_OK||data==null||data.getData()==null)return;final Uri uri=data.getData();
   if(request==IMPORT_GAME_LOG){final String name=display(uri);jobs.begin("读取游戏日志",new Jobs.Work(){public void run(Jobs j)throws Exception{GameLogs.importLog(j,uri,name);}});return;}
-  if(request>=1&&request<=3){try{getContentResolver().getClass().getMethod("takePersistableUriPermission",Uri.class,int.class).invoke(getContentResolver(),uri,1);}catch(Exception ignored){}
+  if(request>=1&&request<=4){try{getContentResolver().getClass().getMethod("takePersistableUriPermission",Uri.class,int.class).invoke(getContentResolver(),uri,1);}catch(Exception ignored){}
    final String name=display(uri);jobs.begin("导入文件",new Jobs.Work(){public void run(Jobs j)throws Exception{j.importFile(uri,request,name);}});
   }else if(request==SAVE_APK||request==SAVE_LOG)jobs.exportTask(new Jobs.Work(){public void run(Jobs j)throws Exception{j.export(uri,request==SAVE_LOG);}});
  }

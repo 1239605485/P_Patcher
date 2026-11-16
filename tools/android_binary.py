@@ -58,9 +58,9 @@ def backup_rules():
 
 def manifest(public):
  attrs={n:int(i,16) for n,i in re.findall(r'<public type="attr" name="([^"]+)" id="([^"]+)"',public)};x=XML(attrs)
- x.start('manifest',{'package':(3,'cn.minidayz.patcher'),'versionCode':(16,10500),'versionName':(3,'1.5.0')})
+ x.start('manifest',{'package':(3,'cn.minidayz.patcher'),'versionCode':(16,10600),'versionName':(3,'1.6.0')})
  x.start('uses-sdk',{'minSdkVersion':(16,26),'targetSdkVersion':(16,35)});x.end('uses-sdk')
- for permission in ['INTERNET','REQUEST_INSTALL_PACKAGES','FOREGROUND_SERVICE','FOREGROUND_SERVICE_DATA_SYNC','POST_NOTIFICATIONS']:
+ for permission in ['REQUEST_INSTALL_PACKAGES','FOREGROUND_SERVICE','FOREGROUND_SERVICE_DATA_SYNC','POST_NOTIFICATIONS']:
   x.start('uses-permission',{'name':(3,'android.permission.'+permission)});x.end('uses-permission')
  x.start('queries')
  for p in ['com.mdz21.minidayz2.xin.p13i','com.mdz21.minidayz2.xin.diag','com.mdz21.minidayz2']:
@@ -71,6 +71,5 @@ def manifest(public):
  x.start('application',{'label':(3,'P版补丁助手'),'icon':(1,0x7f020000),'theme':(1,int(theme[1],16)),'allowBackup':(18,0),'fullBackupContent':(18,0),'restoreAnyVersion':(18,0),'dataExtractionRules':(1,0x7f010000),'usesCleartextTraffic':(18,0),'debuggable':(18,0)})
  x.start('activity',{'name':(3,'cn.minidayz.patcher.MainActivity'),'exported':(18,1)})
  x.start('intent-filter');x.start('action',{'name':(3,'android.intent.action.MAIN')});x.end('action');x.start('category',{'name':(3,'android.intent.category.LAUNCHER')});x.end('category');x.end('intent-filter');x.end('activity')
- x.start('activity',{'name':(3,'cn.minidayz.patcher.AiActivity'),'exported':(18,0)});x.end('activity')
  x.start('service',{'name':(3,'cn.minidayz.patcher.BuildService'),'exported':(18,0),'foregroundServiceType':(17,1)});x.end('service')
  x.start('provider',{'name':(3,'cn.minidayz.patcher.OutputProvider'),'authorities':(3,'cn.minidayz.patcher.files'),'exported':(18,0),'grantUriPermissions':(18,1)});x.end('provider');x.end('application');x.end('manifest');return x.bytes()

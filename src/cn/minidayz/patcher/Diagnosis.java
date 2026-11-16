@@ -3,6 +3,9 @@ import org.json.*;
 public final class Diagnosis {
  public static JSONObject explain(String code)throws Exception{String action;String kind="manual-input";boolean retry=false;
   if(code.equals("E_INPUT_MISSING")){kind="missing-input";action="请先选择游戏 APK；检查兼容性或生成时还需要插件包，生成时还需原签名文件。按页面提示补齐后重试。";}
+  else if(code.equals("E_ENGINE_MISSING")||code.equals("E_ENGINE_ID")){kind="missing-engine";action="返回安装页，导入与功能包配套的引擎 ZIP，再重新检查。引擎包和插件包要分别导入。";}
+  else if(code.startsWith("E_ENGINE_")||code.startsWith("E_PACKAGE_")||code.startsWith("E_BUNDLE_")){kind="package-integrity";action="核对游戏版本并重新导入对应的引擎或插件包；文件校验失败时不会继续生成。";}
+  else if(code.equals("E_CORE_MISSING")){kind="missing-dependency";action="首次请导入插件总包；单功能 ZIP 用于之后更新，不包含原生与隔离基础包。";}
   else if(code.equals("E_LOG_INSTALLER_DIAGNOSTIC")){kind="wrong-diagnostic-source";action="这是补丁助手自己的诊断包。若要分析游戏运行错误，请导入游戏内导出的诊断 ZIP 或包含崩溃信息的日志。";}
   else if(code.equals("E_UNSUPPORTED_VERSION")){kind="adaptation-required";action="已自动尝试整包识别和逐文件核对。差异报告列出真实变化；需要适合这些变化的新模块包，改版本号不能修复。";}
   else if(code.startsWith("E_LOCAL_")||code.startsWith("E_RULE_")){kind="local-assistance";action="本地诊断记录已保留。请检查版本证据、插件兼容性与实测规则，必要时转AI分析；不会强行修改未知版本。";}

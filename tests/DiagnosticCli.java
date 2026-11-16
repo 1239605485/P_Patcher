@@ -33,6 +33,11 @@ public final class DiagnosticCli {
   ok(limit(compressedNonReport(3,3*1024*1024,true)),"ignored entries after an ordinary report cannot exceed total limit");
   ok(LogEvidence.diagnose("  \n").getString("conclusion").contains("尚未导入"),"empty log is identified as missing, not clean");
   ok(LogEvidence.diagnose("SIGSEGV").getInt("marker_occurrences")==1,"actual crash markers still classified");
+  JSONObject buildIdentity=new JSONObject().put("build_id","build-123").put("package","com.example.game").put("version","1.5.5");
+  JSONObject buildMatch=LogEvidence.compare("build_id=build-123",buildIdentity);
+  ok(buildMatch.getString("status").equals("exact-build")&&buildMatch.getBoolean("automatic_repair_allowed"),"matching build id links a crash report to its output build");
+  ok(LogEvidence.compare("build_id=build-old",buildIdentity).getString("status").equals("conflict"),"conflicting build id blocks automatic repair");
+  ok(!LogEvidence.compare("build_id=build-123",new JSONObject().put("package","com.example.game").put("version","1.5.5")).getBoolean("automatic_repair_allowed"),"unmatched build id cannot fall back to version-only approval");
   ok(Diagnosis.explain("E_INPUT_MISSING").getString("category").equals("missing-input"),"missing input has an actionable explanation");
   JSONObject success=new JSONObject().put("status","success").put("stage","local-complete");String text=DiagnosticHandoff.render(success,true,false);
   ok(text.contains("历史失败")&&text.contains("没有附带")&&text.contains("不能证明"),"successful current task and historical failure cannot be confused");
