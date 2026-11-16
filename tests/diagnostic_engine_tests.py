@@ -12,5 +12,5 @@ with tempfile.TemporaryDirectory(prefix='patcher-diag-test-') as out:
         *map(str, [root/'tests/DiagnosticCli.java', root/'src/cn/minidayz/patcher/LogEvidence.java',
                     root/'src/cn/minidayz/patcher/LogBundleType.java', root/'src/cn/minidayz/patcher/Diagnosis.java',
                     root/'src/cn/minidayz/patcher/DiagnosticHandoff.java',root/'src/cn/minidayz/patcher/OutputProvenance.java',
-                    root/'src/cn/minidayz/patcher/FilesEx.java',root/'src/cn/minidayz/patcher/AiContext.java'])], check=True)
+                    root/'src/cn/minidayz/patcher/FilesEx.java'])], check=True)
     subprocess.run(['java', '-cp', out+os.pathsep+cp, 'cn.minidayz.patcher.DiagnosticCli', *sys.argv[1:]], check=True)

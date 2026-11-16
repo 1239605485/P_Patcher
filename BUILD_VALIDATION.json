@@ -1,21 +1,44 @@
 {
-  "validated_on": "2026-11-16",
-  "installer_version": "1.6.0",
-  "local_platform": "Windows x64",
-  "release_apk_build": "PASS with pinned P signing identity",
-  "python_unit_tests_passed": 22,
-  "diagnostic_suite": "PASS",
-  "delivery_jvm_suite": "PASS; 8 checks",
-  "external_engine": "same Java bytecode tested with JVM-only DexClassLoader bridge",
-  "unity_objects": 58528,
-  "unchanged_unity_objects": 58522,
-  "changed_textassets": 6,
-  "generated_game_apk_bytes": 273703781,
-  "android_device_execution": "NOT_RUN",
-  "github_hosted_workflow_execution": "NOT_RUN",
-  "known_game_settings_crash": "NOT_CONFIRMED_FIXED; native candidate unchanged",
-  "native_feature_individual_splitting": "NOT_COMPLETE; kept as mandatory coupled core",
-  "installer_apk_sha256": "023c7e76d05d614218d9f5109cb3c4591f1ee4190a76f67d0a3495bdd46e84a0",
-  "plugin_bundle_sha256": "23dc22524b3623f0a38e70f9e20a2eeac9f8d48299686f1fe4a06b745d5f7b3a",
-  "engine_sha256": "e2861d9058af156e2a4aedda12544f9afcda5a342fd20af39caff067d64a867a"
+  "installer_version": "1.7.0",
+  "version_code": 10700,
+  "package": "cn.minidayz.patcher",
+  "python_tests": {
+    "passed": 24,
+    "failed": 0
+  },
+  "diagnostic_tests": {
+    "passed": 24,
+    "failed": 0
+  },
+  "core_behavior_tests": {
+    "passed": 22,
+    "failed": 0
+  },
+  "real_crash_log_imports": 3,
+  "full_P14_build": "PASS: plugin import, matching, rebuild, signature, ZIP integrity, edited manifest, build receipt",
+  "original_game_apk_unchanged": true,
+  "ai_implementation_classes_absent": [
+    "AiActivity",
+    "AiClient",
+    "AiContext",
+    "AiSettings",
+    "AiWorkspace",
+    "ApiProtocol",
+    "LocalAssistant",
+    "RepairRules",
+    "AutonomyDecision",
+    "ProjectAnalysis",
+    "MigrationEvidence",
+    "FeatureGuide",
+    "StrictJson",
+    "LogAssociation"
+  ],
+  "internet_permission_absent": true,
+  "activities": [
+    "cn.minidayz.patcher.MainActivity"
+  ],
+  "android_device_ui_test": "NOT_RUN",
+  "game_runtime_test": "NOT_RUN",
+  "apk_sha256": "67a109afd18b50f1dc8763d9318c6e1130a0b328e7bbdbea5dbdc7aac36a9463",
+  "private_keys_in_source_or_apk": false
 }

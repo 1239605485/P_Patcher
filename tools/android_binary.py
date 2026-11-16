@@ -58,7 +58,7 @@ def backup_rules():
 
 def manifest(public):
  attrs={n:int(i,16) for n,i in re.findall(r'<public type="attr" name="([^"]+)" id="([^"]+)"',public)};x=XML(attrs)
- x.start('manifest',{'package':(3,'cn.minidayz.patcher'),'versionCode':(16,10600),'versionName':(3,'1.6.0')})
+ x.start('manifest',{'package':(3,'cn.minidayz.patcher'),'versionCode':(16,10700),'versionName':(3,'1.7.0')})
  x.start('uses-sdk',{'minSdkVersion':(16,26),'targetSdkVersion':(16,35)});x.end('uses-sdk')
  for permission in ['REQUEST_INSTALL_PACKAGES','FOREGROUND_SERVICE','FOREGROUND_SERVICE_DATA_SYNC','POST_NOTIFICATIONS']:
   x.start('uses-permission',{'name':(3,'android.permission.'+permission)});x.end('uses-permission')

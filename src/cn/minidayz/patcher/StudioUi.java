@@ -7,7 +7,7 @@ import android.graphics.drawable.*;
 import android.view.*;
 import android.widget.*;
 
-/** Shared native shell and visual language for installation, AI and settings. */
+/** Shared offline shell for APK creation, live progress and local tools. */
 public final class StudioUi {
  public final Activity a;
  public final boolean dark;
@@ -28,30 +28,27 @@ public final class StudioUi {
 
  public LinearLayout mount(int selected,final Nav nav){
   LinearLayout frame=new LinearLayout(a);frame.setOrientation(LinearLayout.VERTICAL);frame.setBackgroundColor(bg);
-  int statusId=a.getResources().getIdentifier("status_bar_height","dimen","android");
-  int bottomId=a.getResources().getIdentifier("navigation_bar_height","dimen","android");
-  int top=statusId==0?dp(24):a.getResources().getDimensionPixelSize(statusId);
-  int bottom=bottomId==0?dp(16):a.getResources().getDimensionPixelSize(bottomId);
-  frame.setPadding(0,top,0,bottom);
+  a.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
+  frame.setFitsSystemWindows(true);
   LinearLayout heading=new LinearLayout(a);heading.setOrientation(LinearLayout.VERTICAL);heading.setPadding(dp(20),dp(12),dp(20),dp(8));
-  TextView brand=text("P PATCHER  /  补丁助手",11,accent);brand.setTypeface(null,Typeface.BOLD);heading.addView(brand);
+  TextView brand=text("P PATCHER  /  本地安装工具",11,accent);brand.setTypeface(null,Typeface.BOLD);heading.addView(brand);
   title=text("",25,ink);title.setTypeface(null,Typeface.BOLD);subtitle=text("",12,muted);heading.addView(title);heading.addView(subtitle);frame.addView(heading);
   scroll=new ScrollView(a);scroll.setFillViewport(true);body=new LinearLayout(a);body.setOrientation(LinearLayout.VERTICAL);
   body.setPadding(dp(16),dp(8),dp(16),dp(18));scroll.addView(body);frame.addView(scroll,new LinearLayout.LayoutParams(-1,0,1));
   LinearLayout navBar=new LinearLayout(a);navBar.setPadding(dp(10),dp(7),dp(10),dp(5));navBar.setBackgroundColor(card);
-  tabs=new Button[2];String[] labels={"安装","诊断"};
-  for(int i=0;i<2;i++){
-   final int tab=i;Button b=new Button(a);b.setText(labels[i]);b.setTextSize(14);b.setAllCaps(false);
+  tabs=new Button[3];String[] labels={"制作 APK","任务窗口","工具"};
+  for(int i=0;i<3;i++){
+   final int tab=i;Button b=new Button(a);b.setText(labels[i]);b.setTextSize(13);b.setAllCaps(false);b.setMinWidth(0);b.setMinimumWidth(0);b.setPadding(dp(4),0,dp(4),0);
    navBar.addView(b,new LinearLayout.LayoutParams(0,dp(48),1));b.setOnClickListener(new View.OnClickListener(){public void onClick(View v){nav.select(tab);}});tabs[i]=b;
   }
-  frame.addView(navBar);a.setContentView(frame);select(selected);return body;
+  frame.addView(navBar);a.setContentView(frame);frame.requestFitSystemWindows();select(selected);return body;
  }
  public void scrollToTop(){if(scroll!=null)scroll.post(new Runnable(){public void run(){scroll.scrollTo(0,0);}});}
  public void select(int i){
   if(i<0||i>=tabs.length)i=0;
-  for(int k=0;k<2;k++){tabs[k].setTextColor(k==i?Color.WHITE:muted);tabs[k].setBackgroundDrawable(shape(k==i?accent:card,12));}
-  title.setText(new String[]{"安装游戏插件","进度与诊断"}[i]);
-  Jobs j=Jobs.get(a);subtitle.setText("1.6.0  ·  "+(j.file(1).isFile()?j.apkName:"先选择游戏 APK")+(j.busy?"\n"+j.status+" "+j.progress:""));
+  for(int k=0;k<3;k++){tabs[k].setTextColor(k==i?Color.WHITE:muted);tabs[k].setBackgroundDrawable(shape(k==i?accent:card,12));}
+  title.setText(new String[]{"把插件装进游戏","每一步，都看得见","管理与诊断"}[i]);
+  subtitle.setText(new String[]{"添加文件，确认版本，然后生成。","检查、处理、签名与输出，集中查看。","签名、引擎和日志，按需使用。"}[i]);
  }
  public TextView text(String s,int size,int color){TextView t=new TextView(a);t.setText(s);t.setTextSize(size);t.setTextColor(color);t.setPadding(0,dp(4),0,dp(6));t.setLineSpacing(dp(2),1);return t;}
  public LinearLayout card(LinearLayout parent,String name,String description){

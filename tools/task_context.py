@@ -1,4 +1,4 @@
-"""Export a bounded AI handoff from a project index and evidence files."""
+"""Export a bounded technical handoff from a project index and evidence files."""
 import argparse
 import json
 from pathlib import Path

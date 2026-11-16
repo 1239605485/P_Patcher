@@ -49,7 +49,7 @@ public final class DiagnosticCli {
   ok(!OutputProvenance.importMakesStale(false,1,true,"old","new"),"no output does not create stale output metadata");
   Prefs prefs=new Prefs();prefs.putString("output_module_sha256","original").putBoolean("output_provenance_known",true).putBoolean("previous_output_stale",false).commit();
   OutputProvenance.imported(prefs,2,"modified",true);
-  ok(prefs.getBoolean("output_provenance_known",false)&&prefs.getBoolean("previous_output_stale",false),"committed AI module change persists stale status");
+  ok(prefs.getBoolean("output_provenance_known",false)&&prefs.getBoolean("previous_output_stale",false),"committed module change persists stale status");
   OutputProvenance.imported(prefs,2,"original",true);
   ok(prefs.getBoolean("previous_output_stale",false),"rollback never falsely clears an existing stale status");
   Prefs restored=new Prefs();restored.putString("output_module_sha256","modified").putBoolean("output_provenance_known",true).putBoolean("previous_output_stale",false).commit();

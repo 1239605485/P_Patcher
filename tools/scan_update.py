@@ -44,7 +44,7 @@ def main():
         report['reference_note']='目标与已记录的 1.5.5 原版完全一致；本次只查阅历史静态记录，没有重新扫描。'
     (a.out/'report.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     text=compact(report)
-    (a.out/'给AI的精简报告.txt').write_text(text,encoding='utf-8')
+    (a.out/'精简诊断报告.txt').write_text(text,encoding='utf-8')
     (a.out/'status.json').write_text(json.dumps({'status':'ANALYSIS_ONLY','target_apk_sha256':target['apk_sha256'],
         'full_scan':ev is not None,'device_test':'NOT_RUN'},indent=2),encoding='utf-8')
     print(text)

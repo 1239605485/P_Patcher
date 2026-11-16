@@ -148,7 +148,7 @@ def main():
     a.out.mkdir(parents=True)
     (a.out/'report.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     text=compact(report)
-    (a.out/'给AI的精简报告.txt').write_text(text,encoding='utf-8')
+    (a.out/'精简诊断报告.txt').write_text(text,encoding='utf-8')
     print(text)
 
 
